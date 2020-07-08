@@ -3,7 +3,6 @@ import traceback
 import locale
 import os
 path = os.getcwd()
-locale.setlocale(locale.LC_ALL, locale='zh-CN')
 Action_Get_List = False
 Action_Rename_File = True
 file_list = []
@@ -42,6 +41,7 @@ def write_error_file(error_log):
 
 def main():
     global file_list, rename_list
+    locale.setlocale(locale.LC_ALL, locale='zh-CN')
     if Action_Rename_File == get_file_list():
         read_list_file()
         if len(rename_list) == len(file_list):

@@ -7,11 +7,13 @@ Action_Get_List = False
 Action_Rename_File = True
 file_list = []
 rename_list = []
+exe_path, exe_name = os.path.split(__file__)
 
 
 def get_file_list():
     global file_list
     file_list = os.listdir(path)
+    file_list.remove(exe_name)
     file_list = sorted(file_list, key=locale.strxfrm)
     if "list.txt" in file_list:
         file_list.remove('list.txt')
@@ -60,4 +62,3 @@ if __name__ == '__main__':
     except Exception as e:
         traceback.print_exc()
         write_error_file(e)
-
